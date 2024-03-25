@@ -33,14 +33,8 @@ public class Exercise3 {
             if (!checkDuplicate.containsKey(listNumber)) {
                 checkDuplicate.put(listNumber, 1);
             } else {
-                int currentValue = checkDuplicate.get(listNumber);
-                checkDuplicate.replace(listNumber, currentValue+1);
-            }
-
-            if (checkDuplicate.containsValue(2)){
                 return true;
             }
-
         }
         return false;
     }

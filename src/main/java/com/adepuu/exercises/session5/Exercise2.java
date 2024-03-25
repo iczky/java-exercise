@@ -13,7 +13,7 @@ public class Exercise2 {
      */
     public static void main(String[] args) {
         ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1,2,3,4,5));
-        rotateArray(numbers, 5);
+        rotateArray(numbers, 2);
     }
 
     public static void rotateArray(ArrayList<Integer> listNumber, int target){
