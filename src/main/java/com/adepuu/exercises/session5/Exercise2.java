@@ -11,4 +11,13 @@ public class Exercise2 {
     public static void main(String[] args) {
 
     }
+
+    public static void rotateArray(int[] listNumber, int target){
+        for (int i = 0; i < listNumber.length; i++) {
+            int left = i;
+            int right = listNumber.length - 1;
+
+
+        }
+    }
 }
