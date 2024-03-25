@@ -1,5 +1,7 @@
 package com.adepuu.exercises.session5;
 
+import java.util.ArrayList;
+
 public class Exercise9 {
     /**
      * Java Program to get the number of days you have to wait after the i-th day to get a warmer temperature
@@ -17,6 +19,33 @@ public class Exercise9 {
      * Output: [1,1,0]
      */
     public static void main(String[] args) {
+        int[] numbers = {30,60,90};
+        System.out.println(nDays(numbers));
+    }
 
+    public static ArrayList<Integer> nDays (int[] listTemperatures){
+        ArrayList<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i < listTemperatures.length; i++) {
+            int next = i + 1;
+            int days = 1;
+            if (next >= listTemperatures.length){
+                result.add(0);
+            } else if (listTemperatures[i] < listTemperatures[next]) {
+                result.add(days);
+            } else{
+                while (next < listTemperatures.length && listTemperatures[i] > listTemperatures[next]){
+                    next++;
+                    days++;
+                }
+                if (next >= listTemperatures.length){
+                    result.add(0);
+                } else {
+                    result.add(days);
+                }
+            }
+        }
+
+        return result;
     }
 }
