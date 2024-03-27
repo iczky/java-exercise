@@ -20,7 +20,7 @@ public class Exercise1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int result = averageResult(calculateAverage(scanner));
+        double result = averageResult(calculateAverage(scanner));
         System.out.println("The Average is: " + result);
 
     }
@@ -45,12 +45,12 @@ public class Exercise1 {
         return listNumbers;
     }
 
-    static int averageResult (ArrayList<Integer> listNumbers){
+    static double averageResult (ArrayList<Integer> listNumbers){
         int sum = 0;
         for(int number: listNumbers){
             sum += number;
         }
-        return sum/listNumbers.size();
+        return (double) sum /listNumbers.size();
     }
 
 }

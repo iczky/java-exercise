@@ -30,7 +30,7 @@ public class Exercise2 {
             System.out.println(e.toString());
             System.out.println("the file is not available");
         } finally {
-            System.out.println("Read is complete/not");
+            System.out.println("Done");
         }
 
     }
