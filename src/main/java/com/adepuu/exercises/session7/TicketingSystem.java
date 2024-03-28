@@ -1,5 +1,8 @@
 package com.adepuu.exercises.session7;
 
+import java.util.Scanner;
+import java.util.UUID;
+
 public class TicketingSystem {
     /**
      * Write a Java Program using OOP about simple ticketing system for an event.
@@ -25,7 +28,47 @@ public class TicketingSystem {
      * Start your project from the main method below ;) have fun!
      */
     public static void main(String[] args) {
+        EventTickets eventTickets = new EventTickets();
+        Scanner scanner = new Scanner(System.in);
 
+        boolean running = true;
+        while (running) {
+            System.out.println("Ticketing System");
+            System.out.println("1. Create Ticket");
+            System.out.println("2. Book Ticket");
+            System.out.println("3. Validate Ticket");
+            System.out.println("4. Exit");
+            System.out.print("Select an option: ");
+            int option = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (option) {
+                case 1:
+                    System.out.print("Enter event name: ");
+                    String eventName = scanner.nextLine();
+                    System.out.print("Enter ticket price: ");
+                    double price = scanner.nextDouble();
+                    eventTickets.createTicket(eventName, price);
+                    break;
+                case 2:
+                    System.out.print("Enter ticket ID to book: ");
+                    UUID bookTicketId = UUID.fromString(scanner.nextLine());
+                    eventTickets.bookTicket(bookTicketId);
+                    break;
+                case 3:
+                    System.out.print("Enter ticket ID to validate: ");
+                    UUID validateTicketId = UUID.fromString(scanner.nextLine());
+                    eventTickets.validateTicket(validateTicketId);
+                    break;
+                case 4:
+                    running = false;
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        }
+        scanner.close();
 
     }
 }
