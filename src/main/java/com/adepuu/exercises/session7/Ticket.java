@@ -38,6 +38,4 @@ public class Ticket {
     public void confirm() {
         // Implementation for confirmation, if needed
     }
-
-    // Optional: More methods for ticket management
 }

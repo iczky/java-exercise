@@ -36,5 +36,5 @@ public class EventTickets {
         }
     }
 
-    // Additional methods for managing tickets, such as ticket confirmation, cancellation, etc.
+
 }
