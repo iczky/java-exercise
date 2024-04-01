@@ -14,6 +14,11 @@ public class LibraryManagement {
      * - Make sure to implement Inheritance and Polymorphism properly
      */
     public static void main(String[] args) {
+        Book book1 = new Book("Hujan", 2);
+        DVD dvd1 = new DVD("Squad", 5,"Nolan");
+
+        book1.borrowMaterial(3);
+        dvd1.checkAvailable();
 
     }
 }
