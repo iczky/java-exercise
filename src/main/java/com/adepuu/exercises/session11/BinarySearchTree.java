@@ -1,5 +1,9 @@
 package com.adepuu.exercises.session11;
 
+import com.sun.source.tree.BinaryTree;
+
+import java.util.Scanner;
+
 public class BinarySearchTree {
     /**
      * Write a Java binary search tree program that can scale dynamically
@@ -20,6 +24,93 @@ public class BinarySearchTree {
      *
      */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        BinaryTrees binaryTrees = new BinaryTrees();
+
+        System.out.print("Enter the number element you want to insert: ");
+        int numElement = scanner.nextInt();
+        System.out.println("Enter " + numElement + " element");
+
+        for (int i = 0; i < numElement; i++) {
+            int nodeValue = scanner.nextInt();
+            binaryTrees.insert(nodeValue);
+        }
+
+        while (true){
+            System.out.println("Enter a number you want to search [-1 to terminate]");
+            int searchElement = scanner.nextInt();
+
+            if (searchElement == -1){
+                break;
+            }
+
+            boolean foundElement = binaryTrees.search(searchElement);
+            if (foundElement){
+                System.out.println("The element " + searchElement + " is present inside the binary trees \n");
+            } else {
+                System.out.println("There is no element " + searchElement + " inside the binary trees \n");
+            }
+        }
+
+        scanner.close();
 
     }
 }
+
+class TreeNode {
+    int data;
+    TreeNode left;
+    TreeNode right;
+
+    public TreeNode(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class BinaryTrees {
+    private TreeNode root;
+
+    public BinaryTrees(){
+        this.root = null;
+    }
+
+    private TreeNode insertRec(TreeNode root, int data) {
+        if (root == null) {
+            root = new TreeNode(data);
+            return root;
+        }
+
+        if (data < root.data) {
+            root.left = insertRec(root.left, data);
+        } else if (data > root.data) {
+            root.right = insertRec(root.right, data);
+        }
+
+        return root;
+    }
+
+    public void insert(int data){
+        root = insertRec(root, data);
+    }
+
+    public boolean search(int data) {
+        return searchRec(root, data);
+    }
+
+    private boolean searchRec(TreeNode root, int data) {
+        if (root == null) {
+            return false;
+        }
+
+        if (data == root.data) {
+            return true;
+        } else if (data < root.data) {
+            return searchRec(root.left, data);
+        } else {
+            return searchRec(root.right, data);
+        }
+    }
+}
+
