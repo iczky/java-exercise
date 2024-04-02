@@ -16,4 +16,9 @@ public class Queue {
      * - Memory Efficiency: The queue should use memory efficiently, allocating and deallocating memory dynamically as needed.
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to dequeue an element from an empty queue, and provide clear error messages.
      */
+    public static void main(String[] args) {
+
+    }
 }
+
+
