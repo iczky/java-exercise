@@ -21,10 +21,10 @@ public class Stack {
         stackstackan.push(15);
         stackstackan.push(10);
         stackstackan.push(12);
-//        int popped = stackstackan.pop();
+        int popped = stackstackan.pop();
 
         stackstackan.printList();
-//        System.out.println(popped);
+        System.out.println(popped);
         System.out.println(stackstackan.peek());
 
     }

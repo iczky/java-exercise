@@ -17,7 +17,15 @@ public class Queue {
      * - Error Handling: The program should handle edge cases gracefully, such as attempting to dequeue an element from an empty queue, and provide clear error messages.
      */
     public static void main(String[] args) {
+        StackQueue<Integer> QQ = new StackQueue<>();
 
+        QQ.enqueue(50);
+        QQ.enqueue(2);
+        QQ.enqueue(10);
+        QQ.printList();
+
+//        System.out.println(QQ.dequeue());
+        System.out.println(QQ.peek());
     }
 }
 
@@ -30,14 +38,7 @@ class StackQueue<T>{
         this.tail = null;
     }
 
-    void insertAtBeginning (T data){
-        Node<T> newNode = new Node<>(data);
-
-        newNode.next = head;
-        head = newNode;
-    }
-
-    void push(T data) {
+    void enqueue(T data) {
         Node<T> newNode = new Node<>(data); // Create a new node
         newNode.next = head; // Set the next of the new node to the current head
         head = newNode; // Set the new node as the head
@@ -55,12 +56,17 @@ class StackQueue<T>{
         System.out.println();
     }
 
-    T pop(){
+    T peek(){
+        Node<T> current = tail;
+        return current.data;
+    }
+
+    T dequeue(){
         if (head == null){
             return null;
         }
 
-        T poppedValue = head.data;
+        T dequeValue = head.data;
 
         if (head.next == null){
             tail = null;
@@ -72,11 +78,11 @@ class StackQueue<T>{
                 current = current.next;
             }
 
-            poppedValue = current.next.data;
+            dequeValue = current.next.data;
             current.next = null;
             tail = current;
         }
-        return poppedValue;
+        return dequeValue;
     }
 
 }
