@@ -1,7 +1,5 @@
 package com.adepuu.exercises.session11;
 
-import java.util.NoSuchElementException;
-
 public class Stack {
     /**
      * Write a Java stack program that can scale dynamically
@@ -22,9 +20,12 @@ public class Stack {
 
         stackstackan.push(15);
         stackstackan.push(10);
-        stackstackan.pop();
+        stackstackan.push(12);
+//        int popped = stackstackan.pop();
 
         stackstackan.printList();
+//        System.out.println(popped);
+        System.out.println(stackstackan.peek());
 
     }
 
@@ -65,6 +66,11 @@ class StackLL<T>{
         }
     }
 
+    T peek(){
+        Node<T> current = head;
+        return current.data;
+    }
+
     void printList() {
         Node<T> current = head;
         while (current != null) {
@@ -85,15 +91,7 @@ class StackLL<T>{
             tail = null;
             head = null;
         } else {
-            Node<T> current = head;
-
-            while(current.next.next != null){
-                current = current.next;
-            }
-
-            poppedValue = current.next.data;
-            current.next = null;
-            tail = current;
+            head = head.next;
         }
         return poppedValue;
     }

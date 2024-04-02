@@ -21,4 +21,62 @@ public class Queue {
     }
 }
 
+class StackQueue<T>{
+    private Node<T> head;
+    private Node<T> tail;
 
+    StackQueue(){
+        this.head = null;
+        this.tail = null;
+    }
+
+    void insertAtBeginning (T data){
+        Node<T> newNode = new Node<>(data);
+
+        newNode.next = head;
+        head = newNode;
+    }
+
+    void push(T data) {
+        Node<T> newNode = new Node<>(data); // Create a new node
+        newNode.next = head; // Set the next of the new node to the current head
+        head = newNode; // Set the new node as the head
+        if (tail == null) {
+            tail = newNode; // If the list was empty, make the new node the tail
+        }
+    }
+
+    void printList() {
+        Node<T> current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    T pop(){
+        if (head == null){
+            return null;
+        }
+
+        T poppedValue = head.data;
+
+        if (head.next == null){
+            tail = null;
+            head = null;
+        } else {
+            Node<T> current = head;
+
+            while(current.next.next != null){
+                current = current.next;
+            }
+
+            poppedValue = current.next.data;
+            current.next = null;
+            tail = current;
+        }
+        return poppedValue;
+    }
+
+}
